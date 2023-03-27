@@ -5,14 +5,14 @@ MARKDOWN:
 
 If pushing from an existing local folder, copy HTTPS.
 In the terminal of the correct folder:  
-% git init -b main 
-% git remote add origin <HTTPS>
-% git add .
-% git commit -m 'first commit'
-% git push origin main
+1) % git init -b main 
+2) % git remote add origin <PASTE HTTPS>
+3) % git add .
+4) % git commit -m 'first commit'
+5) % git push origin main
 
-Create repository on Github. copy SHH KEY. 
-In the terminal, make sure you are in the correct folder you want to copy the git repo in, then % git clone <SHH KEY>
+Create repository on Github. copy SSH KEY. 
+In the terminal, make sure you are in the correct folder you want to copy the git repo in, then % git clone <PASTE SSH KEY>
 
 In the terminal
 1) % touch server.js // To create the server where the express routes will be programmed.
