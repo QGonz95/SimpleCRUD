@@ -2,6 +2,7 @@
 CRUD application
 
 MARKDOWN:
+
 If pushing from an existing local folder, copy HTTPS.
 In the terminal of the correct folder:  
 % git init -b main 
