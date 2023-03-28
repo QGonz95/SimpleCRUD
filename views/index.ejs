@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>Client Lists</h1>
+        <ul>
+            <% for(let i = 0; i < clients.length; i++){ %> 
+                <li> Name:<%= clients[i].name %>, Goal:<%= clients[i].goal %>, Sessions:<%= clients[i].sessions%> Payment: <%=clients[i].payment%></li>
+            <% } %> 
+        </ul>
+        <nav>
+            <a href="/clients/new">Add Client</a>
+        </nav>
+    </body>
+</html>

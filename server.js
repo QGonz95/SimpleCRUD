@@ -20,6 +20,12 @@ app.post('/clients/', (req, res) => {
         res.send(addedClient));
     });
 
+
+app.get('/clients', async (req, res) => {
+    const clients = await Client.find({})
+    res.render('index.ejs', {clients})
+});
+
 app.listen(3000, () => {
     console.log('listening...');
 });
@@ -27,3 +33,4 @@ app.listen(3000, () => {
 mongoose.connect('mongodb://localhost:27017/simplecrud').then(() =>
     console.log('Mongod connection established'));
 
+ 
