@@ -17,7 +17,7 @@ app.post('/clients/', (req, res) => {
         req.body.payment = false
     }
     Client.create(req.body).then((err, addedClient)=>
-        res.send(addedClient));
+        res.redirect('/clients'));
     });
 
 // RESTful_ROUTE TO INDEX PAGE 

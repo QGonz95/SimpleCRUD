@@ -12,7 +12,13 @@
         <% for(let i=0; i < clients.length; i++){ %>
             <li>
                 <a href="/clients/<%=clients[i].id;%>"> Name: <%=clients[i].name %>, Goal: <%= clients[i].goal %>,
-                            Sessions: <%= clients[i].sessions%> Payment: <%=clients[i].payment%></a>
+                            Sessions: <%= clients[i].sessions%>  
+                            <% if(clients[i].payment === true){ %>
+                                Paid in full
+                            <% } else { %>
+                                Payment pending
+                            <% } %>
+                            </a>
             </li>
             <% } %>
     </ul>
