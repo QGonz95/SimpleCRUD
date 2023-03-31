@@ -13,14 +13,11 @@
             <li>
                 <a href="/clients/<%=clients[i].id;%>"> Name: <%=clients[i].name %>, Goal: <%= clients[i].goal %>,
                             Sessions: <%= clients[i].sessions%>  
-                            <% if(clients[i].payment === true){ %>
-                                Paid in full
-                            <% } else { %>
-                                Payment pending
-                            <% } %>
+                            Payment: <%= clients[i].payment%>
                             </a>
+                            <a href="/clients/<%=clients[i].id;%>/edit">Edit</a>
                             <form action="/clients/<%=clients[i].id; %>?_method=DELETE" method="POST">
-                                <input type="submit" value="DELETE"/>
+                                <input type="submit" value="x"/>
                             </form>                        
             </li>
             <% } %>

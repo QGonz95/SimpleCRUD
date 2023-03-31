@@ -12,13 +12,9 @@ app.use(methodOverride('_method'));
 app.get('/clients/new', (req, res) => {
     res.render('new.ejs');
 });
+
 // RESTful_ROUTE TO CREATE NEW CLIENT
 app.post('/clients/', (req, res) => {
-    if (req.body.payment === 'on') {
-        req.body.payment = true
-    } else {
-        req.body.payment = false
-    }
     Client.create(req.body).then((err, addedClient)=>
         res.redirect('/clients'));
     });
@@ -41,6 +37,18 @@ app.delete('/clients/:id', async (req, res) => {
     await Client.findByIdAndRemove(req.params.id)
     res.redirect('/clients')
 })
+
+// RESTful_ROUTE TO EDIT PAGE 
+app.get('/clients/:id/edit', async (req, res) => {
+    const client = await Client.findById(req.params.id)
+    res.render('edit.ejs', { client })
+})
+// RESTful_ROUTE TO UPDATE THE MODEL IN MONGODB
+app.put('/clients/:id', async (req, res) => {
+    await Client.findByIdAndUpdate(req.params.id, req.body)
+    res.redirect('/clients')
+})
+
 app.listen(3000, () => {
     console.log('listening...');
 });

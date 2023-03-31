@@ -4,7 +4,7 @@ const clientSchema = new mongoose.Schema({
     name: { type: String, required: true },
     goal:  { type: String, required: true },
     sessions:  { type: Number, required: true },
-    payment: Boolean
+    payment: String
 })
 
 module.exports = mongoose.model('Client', clientSchema)
