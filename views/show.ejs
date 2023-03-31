@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-    </head>
-    <body>
-        <h1><%=client.name %> </h1>
-        Their goal is <%=client.goal; %>.
-        They have <%=client.sessions; %>.
-        <% if(client.payment === true){ %>
-            Paid in full
-        <% } else { %>
-            Payment pending
-        <% } %>
-        <nav>
-            <a href="/clients">Back to Client</a>
-        </nav>
-    </body>
+<head>
+    <%- include('partials/head'); %>
+    <%- include('partials/header') %>
+</head>
+<body>
+    <h1>
+        <%=r_client.name %>
+    </h1>
+    Their goal is <%=r_client.goal; %>.
+        They have <%=r_client.sessions; %>.
+            <% if(r_client.payment===true){ %>
+                Paid in full
+                <% } else { %>
+                    Payment pending
+                    <% } %>
+                        <nav>
+                            <a href="/clients">Back to Client</a>
+                        </nav>
+</body>
+
 </html>

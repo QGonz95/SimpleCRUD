@@ -8,6 +8,9 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
+app.get('/', (req, res) => {
+    res.render('home.ejs')
+})
 // RESTful_ROUTE TO NEW CLIENT PAGE
 app.get('/clients/new', (req, res) => {
     res.render('new.ejs');
@@ -28,8 +31,8 @@ app.get('/clients', async (req, res) => {
 
 // RESTful_ROUTE TO SHOW PAGE 
 app.get('/clients/:id', async (req, res) => {
-    const client = await Client.findById(req.params.id)
-    res.render('show.ejs', { client })
+    const r_client = await Client.findById(req.params.id)
+    res.render('show.ejs', { r_client })
 })
 
 // RESTful_ROUTE TO DELETE PAGE 
@@ -40,8 +43,8 @@ app.delete('/clients/:id', async (req, res) => {
 
 // RESTful_ROUTE TO EDIT PAGE 
 app.get('/clients/:id/edit', async (req, res) => {
-    const client = await Client.findById(req.params.id)
-    res.render('edit.ejs', { client })
+    const r_client = await Client.findById(req.params.id)
+    res.render('edit.ejs', { r_client })
 })
 // RESTful_ROUTE TO UPDATE THE MODEL IN MONGODB
 app.put('/clients/:id', async (req, res) => {

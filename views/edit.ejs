@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Edit Client information</title>
-    </head>
-    <body>
+<head>
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+</head>    
+<body>
         <h1>Edit Client Page</h1>
-        <form action="/clients/<%=client.id%>?_method=PUT" method="POST">
-            Name: <input type="text" name="name" value="<%=client.name%>"/><br/>
-            Goal: <input type="text" name="goal" value="<%=client.goal%>"/><br/>
-            Sessions: <input type="number" name="sessions" value="<%=client.sessions%>"/><br/>
+        <form action="/clients/<%=r_client.id%>?_method=PUT" method="POST">
+            Name: <input type="text" name="name" value="<%=r_client.name%>"/><br/>
+            Goal: <input type="text" name="goal" value="<%=r_client.goal%>"/><br/>
+            Sessions: <input type="number" name="sessions" value="<%=r_client.sessions%>"/><br/>
             Payment:
-            <input type="text" name="payment" value="<%=client.payment%>"/>
+            <input type="text" name="payment" value="<%=r_client.payment%>"/>
             <br/>
-            <input type="submit" name ="" value="Submit Changes"/>
+            <input type="submit" value="Submit Changes"/>
         </form>
     </body>
 </html>

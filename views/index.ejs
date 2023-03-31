@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <title></title>
+    <%- include('partials/head') %>
+    <%- include('partials/header') %>
 </head>
-
 <body>
-    <h1>Client Lists</h1>
-    <ul>
-        <% for(let i=0; i < clients.length; i++){ %>
-            <li>
-                <a href="/clients/<%=clients[i].id;%>"> Name: <%=clients[i].name %>, Goal: <%= clients[i].goal %>,
-                            Sessions: <%= clients[i].sessions%>  
-                            Payment: <%= clients[i].payment%>
-                            </a>
-                            <a href="/clients/<%=clients[i].id;%>/edit">Edit</a>
-                            <form action="/clients/<%=clients[i].id; %>?_method=DELETE" method="POST">
-                                <input type="submit" value="x"/>
-                            </form>                        
-            </li>
-            <% } %>
-    </ul>
-    <nav>
-        <a href="/clients/new">Add Client</a>
-    </nav>
+    <h1 class="mx-auto" style="width: 200px">Client Lists</h1>
+    <table class="table">
+        <th style="border-color: black; border-style: solid"></th>
+        <th style="border-color: black; border-style: solid"></th>
+        <th style="border-color: black; border-style: solid ; background-color:rgba(128, 128, 128, 0.163);" >Name</th><th style="border-color: black; border-style: solid ; background-color:rgba(128, 128, 128, 0.163);" >Goal</th> <th style="border-color: black; border-style: solid ; background-color:rgba(128, 128, 128, 0.163);" >Sessions</th>
+<% for(let i=0; i < clients.length; i++){ %>
+    <tr>
+        <td> <form action="/clients/<%=clients[i].id;%>?_method=DELETE" method="POST">
+            <input class="btn btn-outline-dark btn-sm" type="submit" value="x"/>
+        </form></td>
+        <td ><a style="text-decoration:none; text-transform: capitalize;" class="btn btn-outline-dark btn-sm" href="/clients/<%=clients[i].id%>/edit">Edit</a></td>
+        <td><a style="color: black; text-transform: capitalize;" href="/clients/<%=clients[i].id;%>"><%=clients[i].name %></a></td>
+         <td style="text-transform: capitalize;"><%=clients[i].goal%></td>
+        <td style="text-transform: capitalize;"> 
+             Sessions: <%= clients[i].sessions%>
+        </td>
+</tr>
+<% } %>
+<tr>
+    <form action="/clients" method="POST">
+    <td></td>
+        <td><input type="submit" value="Add Client" /></td>
+        <td>Name: <input type="text" name="name" /></td>
+        <td>Goals: <input type="text" name="goal" /></td>
+        <td>Sessions: <input type="number" name="sessions" /></td>
+    </form>
+</tr>
+</table>
 </body>
-
 </html>
