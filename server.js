@@ -1,9 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const app = express();
+const methodOverride = require('method-override');
 const Client = require('./models/clients')
 
+const app = express();
+
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
 
 // RESTful_ROUTE TO NEW CLIENT PAGE
 app.get('/clients/new', (req, res) => {
@@ -33,6 +36,11 @@ app.get('/clients/:id', async (req, res) => {
     res.render('show.ejs', { client })
 })
 
+// RESTful_ROUTE TO DELETE PAGE 
+app.delete('/clients/:id', async (req, res) => {
+    await Client.findByIdAndRemove(req.params.id)
+    res.redirect('/clients')
+})
 app.listen(3000, () => {
     console.log('listening...');
 });
