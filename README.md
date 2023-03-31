@@ -27,6 +27,21 @@ In the terminal
 
 // install mongoose. I am working with mongoose update 7.0.3 so Model.find() functions do not accept call back functions. I am using async functions
 - % npm i mongoose 
- 
-// install ejs (Embedded JavaScript). After creating views folder, touch .ejs files 
+
+// install ejs (Embedded JavaScript). After creating views folder, touch .ejs files. Allows you to write JavaScript code in HTML only when placed between what are called Scriptlets (ex. <%js%> <%=js%> <%- js -%>)
 - % npm i ejs
+
+Folders created:
+- controllers (maybe)
+- models
+- views
+- views/partials
+- public(for css)
+
+Files created:
+- server.js
+- models/clients.js
+- views/ edit.ejs
+- views/ index.ejs
+- views/ new.ejs
+- views/ show.ejs

@@ -27,7 +27,7 @@ app.get('/clients', async (req, res) => {
     res.render('index.ejs', {clients})
 });
 
-// RESTful_ROUTE TO INDEX PAGE 
+// RESTful_ROUTE TO SHOW PAGE 
 app.get('/clients/:id', async (req, res) => {
     const client = await Client.findById(req.params.id)
     res.render('show.ejs', { client })
